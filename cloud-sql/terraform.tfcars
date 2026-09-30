@@ -1,0 +1,79 @@
+# -----------------------------------------------------------------------------
+# Cloud SQL Deployment Variables
+#
+# Recommended HCP Terraform workspace variables:
+#
+# project_id = "my-gcp-project"
+# region     = "us-central1"
+#
+# instance_name    = "platform-postgres"
+# database_version = "POSTGRES_15"
+# tier             = "db-custom-2-7680"
+#
+#
+# -----------------------------------------------------------------------------
+# Private Networking
+# -----------------------------------------------------------------------------
+#
+# private_network = "projects/my-gcp-project/global/networks/platform-vpc"
+#
+# allocated_ip_range = "google-managed-services-platform"
+#
+#
+# -----------------------------------------------------------------------------
+# Optional KMS
+# -----------------------------------------------------------------------------
+#
+# hcp_organization    = "my-hcp-organization"
+# use_kms_workspace   = true
+# kms_workspace_name  = "gcp-kms"
+#
+#
+# -----------------------------------------------------------------------------
+# Availability
+# -----------------------------------------------------------------------------
+#
+# availability_type = "ZONAL"
+#
+#
+# -----------------------------------------------------------------------------
+# Storage
+# -----------------------------------------------------------------------------
+#
+# disk_type       = "PD_SSD"
+# disk_size_gb    = 20
+# disk_autoresize = true
+#
+#
+# -----------------------------------------------------------------------------
+# Backups
+# -----------------------------------------------------------------------------
+#
+# backup_enabled                 = true
+# backup_start_time              = "03:00"
+# retained_backups               = 7
+# point_in_time_recovery_enabled = true
+# transaction_log_retention_days = 7
+#
+#
+# -----------------------------------------------------------------------------
+# Protection
+# -----------------------------------------------------------------------------
+#
+# deletion_protection = true
+#
+#
+# -----------------------------------------------------------------------------
+# Databases
+# -----------------------------------------------------------------------------
+#
+# databases = {
+#   application = {
+#     name = "application"
+#   }
+#
+#   reporting = {
+#     name = "reporting"
+#   }
+# }
+# -----------------------------------------------------------------------------
