@@ -1,0 +1,35 @@
+
+name: Test GitHub OIDC with GCP
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+
+      - name: Verify authentication
+        env:
+          FEDERATED_TOKEN: ${{ steps.auth.outputs.auth_token }}
+        run: |
+          if [ -z "$FEDERATED_TOKEN" ]; then
+            echo "Federated token was not generated."
+            exit 1
+          fi
+
+          echo "Google Cloud federation succeeded."
+          echo "A federated token was generated."
